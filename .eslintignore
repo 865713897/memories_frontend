@@ -1,0 +1,15 @@
+build/*
+dist/*
+config/*
+docs/*
+node_modules/*
+plugins/*
+public/*
+scripts/*
+mock/*
+package.json
+
+*/**/iconfont.js
+*/**/iconfontNew.js
+*/**/iconfont_frontend.js
+.*.js
