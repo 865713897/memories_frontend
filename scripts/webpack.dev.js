@@ -18,5 +18,10 @@ module.exports = {
     open: true,
     port: '3001',
     hot: true, // 热更新
+    proxy: {
+      '/api/v1': {
+        target: 'http://localhost:8080/',
+      },
+    },
   },
 };

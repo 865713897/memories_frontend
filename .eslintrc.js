@@ -68,6 +68,7 @@ module.exports = {
     /* 【严格】字符串模板中变量周围不能有空格 */
     'template-curly-spacing': [2],
     /* 【忽略】parseInt需要显示指定进制 */
+    'react/jsx-props-no-spreading': 'off',
     radix: [0],
   },
 };

@@ -1,0 +1,80 @@
+.root {
+  height: 100vh;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    .left {
+      width: 24px;
+      height: 24px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .right {
+      font-size: 16px;
+    }
+  }
+  .logoArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    .logo {
+      width: 54px;
+      height: 40px;
+      animation-name: rotate;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+  }
+  .content {
+    padding: 0 9px;
+    .title {
+      padding-left: 11px;
+      font-size: 24px;
+      color: #000000;
+    }
+    .describe {
+      padding-left: 11px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: rgba($color: #000000, $alpha: 0.3);
+    }
+    .actions {
+      padding-top: 40px;
+      .submit {
+        height: 40px;
+        background-color: #61dafb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+      }
+    }
+  }
+  :global {
+    .ant-form-item-with-help .ant-form-item-explain {
+      margin-left: 11px;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+    width: 54px;
+    height: 40px;
+  }
+  50% {
+    width: 108px;
+    height: 80px;
+  }
+  100% {
+    transform: rotate(360deg);
+    width: 54px;
+    height: 40px;
+  }
+}
