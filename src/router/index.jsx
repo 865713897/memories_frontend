@@ -29,7 +29,7 @@ function Router() {
     <HashRouter>
       <Routes>
         {renderRoute(routes)}
-        <Route path="*" element={<Navigate to="/user/signin" />} />
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </HashRouter>
   );

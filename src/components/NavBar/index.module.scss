@@ -1,0 +1,39 @@
+.root {
+  height: calc(100vh - 70px);
+  .footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 10px 4px #000000;
+    .iconArea {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        width: 60px;
+        height: 70px;
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .text {
+          font-size: 12px;
+          color: #000000;
+        }
+      }
+      .active {
+        span {
+          color: #2f54eb;
+        }
+        .text {
+          color: #2f54eb;
+        }
+      }
+    }
+  }
+}

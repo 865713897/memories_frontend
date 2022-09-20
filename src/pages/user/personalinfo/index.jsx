@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '@/components/NavBar';
 import ss from './index.module.scss';
 
 function PersonalInfoPage() {
@@ -9,4 +10,4 @@ function PersonalInfoPage() {
   );
 }
 
-export default PersonalInfoPage;
+export default NavBar(PersonalInfoPage);

@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '@/components/NavBar';
 import ss from './index.module.scss';
 
 function HomePage() {
@@ -9,4 +10,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default NavBar(HomePage);
