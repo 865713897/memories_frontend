@@ -18,7 +18,14 @@ export const routes = [
         path: '/user/signin',
         exact: true,
         name: '登陆',
-        Component: pages.LoginPage,
+        Component: pages.SignIn,
+        children: [],
+      },
+      {
+        path: '/user/signup',
+        exact: true,
+        name: '注册',
+        Component: pages.SignUp,
         children: [],
       },
       {
