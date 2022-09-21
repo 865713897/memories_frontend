@@ -79,6 +79,14 @@ module.exports = {
         ],
       },
       {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } },
+        ],
+      },
+      {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         use: [
           {

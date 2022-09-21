@@ -1,6 +1,8 @@
 const { resolve } = require('path');
 const common = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   ...common,
@@ -24,6 +26,15 @@ module.exports = {
         minifyURLs: true,
         useShortDoctype: true,
       },
+    }),
+    new WebpackBar({
+      name: '启动',
+      color: '#2f54eb',
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server', // 开一个本地服务查看报告
+      analyzerHost: '127.0.0.1', // host 设置
+      analyzerPort: 8888, // 端口号设置
     }),
   ],
 };

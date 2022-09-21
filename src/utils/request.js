@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message } from 'antd';
 
 const baseAPI = process.env.NODE_ENV === 'development' ? 'api/v1' : '';
 axios.defaults.baseURL = baseAPI;
@@ -6,13 +7,26 @@ axios.defaults.timeout = 5 * 60 * 1000;
 
 /**
  * @description  请求全局拦截
- * @param  {boolean} transFormData  post方法 true转form提交表单方式
  * */
 axios.interceptors.request.use(
   (config) => {
     return config;
   },
   (error) => {
+    return Promise.reject(error);
+  },
+);
+
+/**
+ * @description  响应全局拦截
+ * */
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const { message: _message } = error || {};
+    message.error(_message);
     return Promise.reject(error);
   },
 );

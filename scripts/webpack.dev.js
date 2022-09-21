@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const common = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = {
   ...common,
@@ -11,6 +12,10 @@ module.exports = {
       template: resolve(__dirname, '../public/index.html'),
       filename: 'index.html',
       cache: false,
+    }),
+    new WebpackBar({
+      name: '启动',
+      color: '#2f54eb',
     }),
   ],
   devServer: {
