@@ -9,6 +9,13 @@ export const routes = [
     children: [],
   },
   {
+    path: '/demo',
+    exact: true,
+    name: 'demo',
+    Component: pages.Demo,
+    children: [],
+  },
+  {
     path: '/user',
     exact: true,
     name: '用户',
