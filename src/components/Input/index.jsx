@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'antd';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 function MInput(props) {
   const { type, ...rest } = props;

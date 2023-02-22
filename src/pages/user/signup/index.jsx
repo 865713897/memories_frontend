@@ -5,7 +5,7 @@ import MInput from '@/components/Input';
 import { phoneReg, EmailReg } from '@/utils/const';
 import { signUp } from './services';
 import Sign from '../components/Sign';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 function SignUp() {
   const [form] = Form.useForm();
@@ -36,7 +36,10 @@ function SignUp() {
     <Sign type="signUp">
       <div className={ss.root}>
         <Form form={form}>
-          <Form.Item name="account" rules={[{ required: true, pattern: phoneReg, message: '请输入正确的手机号' }]}>
+          <Form.Item
+            name="account"
+            rules={[{ required: true, pattern: phoneReg, message: '请输入正确的手机号' }]}
+          >
             <MInput placeholder="请输入账号" autoComplete="off" maxLength={11} type="normal" />
           </Form.Item>
           <Form.Item name="email" rules={[{ pattern: EmailReg, message: '请输入正确的邮箱' }]}>

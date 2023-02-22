@@ -1,4 +1,4 @@
-import * as pages from '@/pages';
+import pages from '@/pages';
 
 export const routes = [
   {
@@ -6,13 +6,6 @@ export const routes = [
     exact: true,
     name: '首页',
     Component: pages.HomePage,
-    children: [],
-  },
-  {
-    path: '/demo',
-    exact: true,
-    name: 'demo',
-    Component: pages.Demo,
     children: [],
   },
   {
@@ -39,7 +32,7 @@ export const routes = [
         path: '/user/personalinfo',
         exact: true,
         name: '个人信息',
-        Component: pages.personalInfoPage,
+        Component: pages.PersonalInfoPage,
         children: [],
       },
     ],

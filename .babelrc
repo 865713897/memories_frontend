@@ -8,6 +8,7 @@
         "libraryDirectory": "lib", // libraryDirectory 默认为 lib
         "style": true
       }
-    ]
+    ],
+    "./plugins/auto-css-module.js"
   ]
 }

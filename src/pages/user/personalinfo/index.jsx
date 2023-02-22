@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '@/components/NavBar';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 function PersonalInfoPage() {
   return (

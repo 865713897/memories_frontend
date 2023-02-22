@@ -1,5 +1,5 @@
 import React from 'react';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 function UserPage(props) {
   const { children = null } = props;

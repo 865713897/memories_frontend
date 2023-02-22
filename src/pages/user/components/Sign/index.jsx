@@ -2,7 +2,7 @@ import React from 'react';
 import { LeftOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 const textEnum = {
   signIn: '登录',

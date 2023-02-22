@@ -21,7 +21,7 @@ module.exports = {
   devServer: {
     host: '127.0.0.1',
     open: true,
-    port: '3001',
+    port: '3003',
     hot: true, // 热更新
     proxy: {
       '/api/v1': {

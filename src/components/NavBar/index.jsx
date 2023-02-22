@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { changeNavBar } from '@/store/navbar';
 import IconFont from '../IconFont';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 const bars = [
   {

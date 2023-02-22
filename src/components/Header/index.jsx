@@ -1,6 +1,6 @@
 import React from 'react';
 import { LeftOutlined } from '@ant-design/icons';
-import ss from './index.module.scss';
+import ss from './index.scss';
 
 function Header(props) {
   const { title = '' } = props;

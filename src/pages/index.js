@@ -1,6 +1,15 @@
-export { default as HomePage } from './home';
-export { default as UserPage } from './user';
-export { default as SignIn } from './user/signin';
-export { default as SignUp } from './user/signup';
-export { default as personalInfoPage } from './user/personalinfo';
-export { default as Demo } from './demo';
+import HomePage from './home';
+import UserPage from './user';
+import SignIn from './user/signin';
+import SignUp from './user/signup';
+import PersonalInfoPage from './user/personalinfo';
+import Heart from './heart';
+
+export default {
+  HomePage,
+  UserPage,
+  SignIn,
+  SignUp,
+  PersonalInfoPage,
+  Heart,
+};

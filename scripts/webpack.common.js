@@ -2,6 +2,83 @@ const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+const getCssLoader = (cssModule = false) => {
+  const cssLoader = [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        modules: false,
+        sourceMap: isDev,
+        importLoaders: 1, // 需要先被 sass-loader 处理，所以这里设置为 1
+      },
+    },
+  ];
+  if (cssModule) {
+    cssLoader[1] = {
+      loader: 'css-loader',
+      options: {
+        modules: { localIdentName: '[name]__[local]-[hash:base64:5]' },
+        sourceMap: isDev,
+        importLoaders: 1, // 需要先被 sass-loader 处理，所以这里设置为 1
+      },
+    };
+  }
+  return cssLoader;
+};
+
+const getScssLoader = (cssModule = false) => {
+  const scssLodaer = [
+    'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        modules: false,
+        sourceMap: isDev,
+        importLoaders: 1, // 需要先被 sass-loader 处理，所以这里设置为 1
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          plugins: [
+            require('postcss-flexbugs-fixes'),
+            require('postcss-preset-env')({
+              autoprefixer: {
+                grid: true,
+                flexbox: 'no-2009',
+              },
+              stage: 3,
+            }),
+            require('postcss-normalize'),
+          ],
+        },
+        sourceMap: isDev,
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: isDev,
+      },
+    },
+  ];
+  if (cssModule) {
+    scssLodaer[1] = {
+      loader: 'css-loader',
+      options: {
+        modules: { localIdentName: '[name]__[local]-[hash:base64:5]' },
+        sourceMap: isDev,
+        importLoaders: 1, // 需要先被 sass-loader 处理，所以这里设置为 1
+      },
+    };
+  }
+  return scssLodaer;
+};
+
+// const getLessLoader = (cssModule = false) => {};
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.js'),
@@ -17,6 +94,11 @@ module.exports = {
     extensions: ['.jsx', '.js', '.json'],
     symlinks: false,
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    // antd: 'antd',
+  },
   module: {
     rules: [
       {
@@ -27,54 +109,25 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
+        oneOf: [
           {
-            loader: 'css-loader',
-            options: {
-              modules: false, // 默认就是 false, 若要开启，可在官网具体查看可配置项
-              sourceMap: isDev, // 开启后与 devtool 设置一致, 开发环境开启，生产环境关闭
-              importLoaders: 0, // 指定在 CSS loader 处理前使用的 laoder 数量
-            },
+            resourceQuery: /css_modules/,
+            use: getCssLoader(true),
+          },
+          {
+            use: getCssLoader(false),
           },
         ],
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
+        oneOf: [
           {
-            loader: 'css-loader',
-            options: {
-              modules: { localIdentName: '[name]__[local]-[hash:base64:5]' },
-              sourceMap: isDev,
-              importLoaders: 1, // 需要先被 sass-loader 处理，所以这里设置为 1
-            },
+            resourceQuery: /css_modules/,
+            use: getScssLoader(true),
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('postcss-flexbugs-fixes'),
-                  require('postcss-preset-env')({
-                    autoprefixer: {
-                      grid: true,
-                      flexbox: 'no-2009',
-                    },
-                    stage: 3,
-                  }),
-                  require('postcss-normalize'),
-                ],
-              },
-              sourceMap: isDev,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDev,
-            },
+            use: getScssLoader(false),
           },
         ],
       },
