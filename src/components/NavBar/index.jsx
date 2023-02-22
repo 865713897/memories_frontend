@@ -37,10 +37,7 @@ function NavBar(WrappedComponent) {
         <div className={ss.footer}>
           {bars.map(({ iconName, key, path, text }) => (
             <div className={ss.iconArea} key={key} style={{ width: `${100 / length}%` }}>
-              <div
-                className={cn(ss.icon, { [ss.active]: _key === key })}
-                onClick={() => onClickBar(key, path)}
-              >
+              <div className={cn(ss.icon, { [ss.active]: _key === key })} onClick={() => onClickBar(key, path)}>
                 <IconFont type={iconName} />
                 <span className={ss.text}>{text}</span>
               </div>
