@@ -1,27 +1,14 @@
-const { resolve } = require('path');
+const webpack = require('webpack');
 const common = require('./webpack.common');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackBar = require('webpackbar');
+const merge = require('webpack-merge');
 
-module.exports = {
-  ...common,
+module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-source-map',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: resolve(__dirname, '../public/index.html'),
-      filename: 'index.html',
-      cache: false,
-    }),
-    new WebpackBar({
-      name: '启动',
-      color: '#2f54eb',
-    }),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    host: '127.0.0.1',
     open: true,
-    port: '3003',
+    compress: true,
     hot: true, // 热更新
     proxy: {
       '/api/v1': {
@@ -29,4 +16,4 @@ module.exports = {
       },
     },
   },
-};
+});

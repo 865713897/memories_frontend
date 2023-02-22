@@ -1,10 +1,14 @@
 const path = require('path');
-
 const isDev = process.env.NODE_ENV === 'development';
+const WebpackBar = require('webpackbar');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const getCssLoader = (cssModule = false) => {
   const cssLoader = [
-    'style-loader',
+    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {
@@ -29,7 +33,7 @@ const getCssLoader = (cssModule = false) => {
 
 const getScssLoader = (cssModule = false) => {
   const scssLodaer = [
-    'style-loader',
+    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {
@@ -42,17 +46,7 @@ const getScssLoader = (cssModule = false) => {
       loader: 'postcss-loader',
       options: {
         postcssOptions: {
-          plugins: [
-            require('postcss-flexbugs-fixes'),
-            require('postcss-preset-env')({
-              autoprefixer: {
-                grid: true,
-                flexbox: 'no-2009',
-              },
-              stage: 3,
-            }),
-            require('postcss-normalize'),
-          ],
+          plugins: [autoprefixer({ grid: true })],
         },
         sourceMap: isDev,
       },
@@ -77,15 +71,13 @@ const getScssLoader = (cssModule = false) => {
   return scssLodaer;
 };
 
-// const getLessLoader = (cssModule = false) => {};
-
 module.exports = {
   entry: {
     app: path.resolve(__dirname, '../src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash].boundle.js',
+    filename: '[name].[hash].js',
   },
   resolve: {
     alias: {
@@ -97,8 +89,24 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
-    // antd: 'antd',
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html'),
+      filename: 'index.html',
+      cache: false,
+    }),
+    new WebpackBar({
+      name: isDev ? '启动中...' : '打包中...',
+      color: '#2f54eb',
+    }),
+    !isDev &&
+      new MiniCssExtractPlugin({
+        filename: '[name].[hash].css',
+        chunkFilename: '[name].[hash].css',
+        ignoreOrder: false,
+      }),
+  ].filter(Boolean),
   module: {
     rules: [
       {
