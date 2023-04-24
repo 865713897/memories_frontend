@@ -4,6 +4,7 @@ import SignIn from './user/signin';
 import SignUp from './user/signup';
 import PersonalInfoPage from './user/personalinfo';
 import Heart from './heart';
+import CreateMacro from './macro';
 
 export default {
   HomePage,
@@ -12,4 +13,5 @@ export default {
   SignUp,
   PersonalInfoPage,
   Heart,
+  CreateMacro,
 };

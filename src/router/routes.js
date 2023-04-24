@@ -37,4 +37,11 @@ export const routes = [
       },
     ],
   },
+  {
+    path: '/macro',
+    exact: true,
+    name: '设置宏',
+    Component: pages.CreateMacro,
+    children: [],
+  },
 ];

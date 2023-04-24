@@ -1,0 +1,49 @@
+.root {
+  .tabs {
+    display: flex;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    .tabItem {
+      padding: 12px 0;
+      font-size: 14px;
+      color: #262626;
+      cursor: pointer;
+      transition: color 0.3s;
+      &:not(:first-child) {
+        margin-left: 32px;
+      }
+    }
+    .active {
+      color: #2f54eb;
+    }
+    .lineBox {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s;
+      .line {
+        width: 60%;
+        height: 2px;
+        background-color: #2f54eb;
+        border-radius: 2px;
+      }
+    }
+  }
+  .content {
+    width: 100%;
+    overflow: hidden;
+    .scrollBox {
+      white-space: nowrap;
+      transition: all 0.2s;
+      .comItem {
+        width: 100%;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+  }
+}
