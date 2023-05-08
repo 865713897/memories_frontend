@@ -44,4 +44,11 @@ export const routes = [
     Component: pages.CreateMacro,
     children: [],
   },
+  {
+    path: '/encrypt-str',
+    exact: true,
+    name: '加密字符串',
+    Component: pages.EncryptStr,
+    children: [],
+  },
 ];

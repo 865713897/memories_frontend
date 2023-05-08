@@ -3,7 +3,7 @@ import UserPage from './user';
 import SignIn from './user/signin';
 import SignUp from './user/signup';
 import PersonalInfoPage from './user/personalinfo';
-import Heart from './heart';
+import EncryptStr from './encrypt-str';
 import CreateMacro from './macro';
 
 export default {
@@ -12,6 +12,6 @@ export default {
   SignIn,
   SignUp,
   PersonalInfoPage,
-  Heart,
+  EncryptStr,
   CreateMacro,
 };

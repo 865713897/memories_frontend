@@ -1,3 +1,17 @@
 .root {
   height: 100%;
+  .container {
+    padding: 24px;
+    .target {
+      width: 100px;
+      height: 100px;
+      background-color: greenyellow;
+    }
+    .btns {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
