@@ -5,6 +5,7 @@ import SignUp from './user/signup';
 import PersonalInfoPage from './user/personalinfo';
 import EncryptStr from './encrypt-str';
 import CreateMacro from './macro';
+import DingTalkDemo from './animation/dingtalk-demo';
 
 export default {
   HomePage,
@@ -14,4 +15,5 @@ export default {
   PersonalInfoPage,
   EncryptStr,
   CreateMacro,
+  DingTalkDemo,
 };

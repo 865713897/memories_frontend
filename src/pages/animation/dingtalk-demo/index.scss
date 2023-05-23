@@ -1,0 +1,19 @@
+#root {
+  height: 400%;
+}
+
+.dt-root {
+  height: 200%;
+  .dt-header {
+    height: 400px;
+  }
+  .dt-animation {
+    height: 200vh;
+    .dt-animation__container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background-color: #040506;
+    }
+  }
+}

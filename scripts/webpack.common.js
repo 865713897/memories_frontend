@@ -83,7 +83,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, '../src'),
     },
-    extensions: ['.jsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
     symlinks: false,
   },
   externals: {
@@ -109,6 +109,15 @@ module.exports = {
   ].filter(Boolean),
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+          },
+        },
+      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',

@@ -51,4 +51,11 @@ export const routes = [
     Component: pages.EncryptStr,
     children: [],
   },
+  {
+    path: '/animation',
+    exact: true,
+    name: '动画',
+    // Component: pages.UserPage,
+    children: [{ path: '/animation/dingtalk-demo', exact: true, name: '钉钉官网动画', Component: pages.DingTalkDemo }],
+  },
 ];
