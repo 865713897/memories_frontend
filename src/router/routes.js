@@ -58,4 +58,16 @@ export const routes = [
     // Component: pages.UserPage,
     children: [{ path: '/animation/dingtalk-demo', exact: true, name: '钉钉官网动画', Component: pages.DingTalkDemo }],
   },
+  {
+    path: '/number-slider',
+    exact: true,
+    name: '数字化快',
+    Component: pages.NumberSlider,
+  },
+  {
+    path: '/waterfall',
+    exact: true,
+    name: '瀑布流',
+    Component: pages.Waterfall,
+  },
 ];

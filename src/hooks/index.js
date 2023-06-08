@@ -1,3 +1,4 @@
 import useInterval from './useInterval.js';
+import useThis from './useThis';
 
-export { useInterval };
+export { useInterval, useThis };

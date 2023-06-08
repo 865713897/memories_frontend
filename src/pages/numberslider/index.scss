@@ -1,0 +1,184 @@
+.ns-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .ns-container {
+    padding: 100px 0;
+    width: 480px;
+    .ns-header {
+      display: flex;
+      justify-content: space-between;
+      .ns-header__left {
+        font-size: 80px;
+        font-weight: bold;
+        color: #776e65;
+      }
+      .ns-header__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .ns-header__score {
+          display: flex;
+          .ns-header__scoreItem {
+            width: 64px;
+            height: 48px;
+            background-color: #bbada0;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 4px;
+            .ns-header__itemTitle {
+              color: #eee4da;
+              font-size: 14px;
+              line-height: 14px;
+            }
+            .ns-header__itemValue {
+              font-size: 24px;
+              line-height: 24px;
+              font-weight: bold;
+            }
+            &:not(:last-child) {
+              margin-right: 10px;
+            }
+          }
+        }
+        .ns-header__actions {
+          .ns-header__newGame {
+            cursor: pointer;
+            background-color: #8f7a66;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+    .ns-game {
+      position: relative;
+      margin-top: 40px;
+      width: 480px;
+      height: 480px;
+      .ns-game__container {
+        position: absolute;
+        z-index: 1;
+        border-radius: 4px;
+        width: 480px;
+        height: 480px;
+        background-color: #bbada0;
+        padding: 16px;
+        .ns-row {
+          display: flex;
+          &:not(:last-child) {
+            margin-bottom: 16px;
+          }
+          .ns-col__item {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 4px;
+            color: rgb(119, 110, 101);
+            background-color: rgba(238, 228, 218, 0.35);
+            font-size: 56px;
+            font-weight: bold;
+            cursor: default;
+            &:not(:last-child) {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+      .ns-game__content {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: 2;
+        .ns-game__contentItem {
+          width: 100px;
+          height: 100px;
+          color: rgb(119, 110, 101);
+          line-height: 100px;
+          text-align: center;
+          border-radius: 4px;
+          font-size: 56px;
+          position: absolute;
+          transition: transform 0.1s ease-in-out;
+          // animation: showItem 0.3s;
+          // animation-delay: 0.6s;
+        }
+        .ns-col__item-2 {
+          background-color: #eee4da;
+        }
+        .ns-col__item-4 {
+          background-color: #eee1c9;
+        }
+        .ns-col__item-8 {
+          background-color: #f3b27a;
+          color: #f9f6f2;
+        }
+        .ns-col__item-16 {
+          background-color: #f69664;
+          color: #f9f6f2;
+        }
+        .ns-col__item-32 {
+          background-color: #f77c5f;
+          color: #f9f6f2;
+        }
+        .ns-col__item-64 {
+          background-color: #f75f3b;
+          color: #f9f6f2;
+        }
+        .ns-col__item-128 {
+          background-color: #edd073;
+          color: #f9f6f2;
+          font-size: 44px;
+        }
+        .ns-col__item-256 {
+          background-color: #edcc62;
+          color: #f9f6f2;
+          font-size: 44px;
+        }
+        .ns-col__item-512 {
+          background-color: #edc950;
+          color: #f9f6f2;
+          font-size: 44px;
+        }
+        .ns-col__item-1024 {
+          background-color: #edc53f;
+          color: #f9f6f2;
+          font-size: 34px;
+        }
+        .ns-col__item-2048 {
+          background-color: #edc22e;
+          color: #f9f6f2;
+          font-size: 34px;
+        }
+        .ns-col__item-4096 {
+          background-color: #ea7ccc;
+          color: #f9f6f2;
+          font-size: 34px;
+        }
+        .ns-col__item-8192 {
+          background-color: #91cc75;
+          color: #f9f6f2;
+          font-size: 34px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes showItem {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

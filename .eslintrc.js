@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'generator-star-spacing': [0],
     'class-methods-use-this': 'off',
+    'react/require-default-props': 'off',
     'consistent-return': [0],
     'react/forbid-prop-types': [0],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],

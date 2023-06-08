@@ -6,6 +6,8 @@ import PersonalInfoPage from './user/personalinfo';
 import EncryptStr from './encrypt-str';
 import CreateMacro from './macro';
 import DingTalkDemo from './animation/dingtalk-demo';
+import NumberSlider from './numberslider';
+import Waterfall from './waterfall';
 
 export default {
   HomePage,
@@ -16,4 +18,6 @@ export default {
   EncryptStr,
   CreateMacro,
   DingTalkDemo,
+  NumberSlider,
+  Waterfall,
 };
